@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.7.1",
+    "@tailwindcss/postcss": "^4.0.12",
     "@tailwindcss/vite": "^4.0.12",
     "aos": "^2.3.4",
     "astro": "^5.4.2",

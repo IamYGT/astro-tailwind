@@ -1,6 +1,6 @@
 export default {
     defaultLanguage: 'tr',
-    supportedLanguages: ['tr', 'en', 'de', 'fr', 'es', 'it', 'ru'],
+    supportedLanguages: ['tr', 'en', 'de', 'fr', 'es', 'it', 'ru', 'pl', 'nl', 'sv', 'ar'],
     // Her bir dilin kendi adında nasıl yazıldığı
     languageNames: {
         tr: 'Türkçe',
@@ -10,6 +10,10 @@ export default {
         es: 'Español',
         it: 'Italiano',
         ru: 'Русский',
+        pl: 'Polski',
+        nl: 'Nederlands',
+        sv: 'Svenska',
+        ar: 'العربية'
     },
     // Her dilin kendisindeki bayrak açıklaması
     flagLabels: {
@@ -20,6 +24,10 @@ export default {
         es: 'Bandera Española',
         it: 'Bandiera Italiana',
         ru: 'Российский флаг',
+        pl: 'Flaga Polski',
+        nl: 'Nederlandse Vlag',
+        sv: 'Svenska Flaggan',
+        ar: 'العلم العربي'
     },
     routes: {
         tr: {
@@ -28,6 +36,8 @@ export default {
             features: 'ozellikler',
             products: 'urunler',
             blog: 'blog',
+            pricing: 'fiyatlandirma',
+            faq: 'sss'
         },
         en: {
             about: 'about',
@@ -35,6 +45,8 @@ export default {
             features: 'features',
             products: 'products',
             blog: 'blog',
+            pricing: 'pricing',
+            faq: 'faq'
         },
     },
     // Dil değiştirme sırasında yerelleştirilmiş rotaları çevirmek için kullanılır
