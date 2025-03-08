@@ -5,45 +5,45 @@ import background from '../assets/background.svg';
 
 <div class="flex flex-col items-center justify-center min-h-[80vh] py-12 text-center">
 	<div class="max-w-3xl mx-auto">
-		<h1 class="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-blue-500" style="font-family: var(--custom-font-heading)">
+		<h1 class="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary" style="font-family: var(--custom-font-heading)">
 			Modern Astro + Tailwind 4 Projesi
 		</h1>
 		
-		<p class="text-xl mb-8 text-slate-300">
+		<p class="text-xl mb-8 text-body">
 			En güncel teknolojilerle oluşturulmuş web geliştirme ortamına hoş geldiniz. Astro'nun hızı ve Tailwind CSS 4'ün yeni özellikleriyle harika web siteleri oluşturun.
 		</p>
 		
 		<div class="flex flex-wrap justify-center gap-4">
-			<a href="https://docs.astro.build" class="btn-primary">
+			<a href="https://docs.astro.build" class="btn-primary hover:btn-primary-hover">
 				Astro Dökümantasyonu
 			</a>
-			<a href="https://tailwindcss.com" class="px-6 py-3 rounded-lg bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300">
+			<a href="https://tailwindcss.com" class="px-6 py-3 rounded-lg bg-tertiary text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-tertiary-alt">
 				Tailwind CSS 4
 			</a>
 		</div>
 	</div>
 	
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 w-full max-w-5xl">
-		<div class="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300" style="transition-timing-function: var(--custom-animation-timing)">
-			<div class="text-4xl mb-4 text-blue-400">🚀</div>
-			<h3 class="text-xl font-semibold mb-2">Üstün Performans</h3>
-			<p class="text-slate-300">Astro'nun adalarda oluşturma (island architecture) yaklaşımı ile daha hızlı web siteleri oluşturun.</p>
+		<div class="bg-darkest backdrop-blur-lg p-6 rounded-xl border border-white-off hover:border-border transition-all duration-300" style="transition-timing-function: var(--custom-animation-timing)">
+			<div class="text-4xl mb-4 text-light-green">🚀</div>
+			<h3 class="text-xl font-semibold mb-2 text-heading">Üstün Performans</h3>
+			<p class="text-body">Astro'nun adalarda oluşturma (island architecture) yaklaşımı ile daha hızlı web siteleri oluşturun.</p>
 		</div>
 		
-		<div class="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300" style="transition-timing-function: var(--custom-animation-timing)">
-			<div class="text-4xl mb-4 text-emerald-400">🎨</div>
-			<h3 class="text-xl font-semibold mb-2">Modern Tasarım</h3>
-			<p class="text-slate-300">Tailwind CSS 4 ile stil oluşturmak hiç bu kadar kolay olmamıştı. Yeni özelliklerle tasarımlarınızı geliştirin.</p>
+		<div class="bg-darkest backdrop-blur-lg p-6 rounded-xl border border-white-off hover:border-border transition-all duration-300" style="transition-timing-function: var(--custom-animation-timing)">
+			<div class="text-4xl mb-4 text-success">🎨</div>
+			<h3 class="text-xl font-semibold mb-2 text-heading">Modern Tasarım</h3>
+			<p class="text-body">Tailwind CSS 4 ile stil oluşturmak hiç bu kadar kolay olmamıştı. Yeni özelliklerle tasarımlarınızı geliştirin.</p>
 		</div>
 		
-		<div class="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300" style="transition-timing-function: var(--custom-animation-timing)">
-			<div class="text-4xl mb-4 text-primary-500">⚡</div>
-			<h3 class="text-xl font-semibold mb-2">Geliştirici Deneyimi</h3>
-			<p class="text-slate-300">TypeScript desteği, sıcak modül değiştirme ve zengin ekosistem ile geliştirme sürecinizi hızlandırın.</p>
+		<div class="bg-darkest backdrop-blur-lg p-6 rounded-xl border border-white-off hover:border-border transition-all duration-300" style="transition-timing-function: var(--custom-animation-timing)">
+			<div class="text-4xl mb-4 text-primary">⚡</div>
+			<h3 class="text-xl font-semibold mb-2 text-heading">Geliştirici Deneyimi</h3>
+			<p class="text-body">TypeScript desteği, sıcak modül değiştirme ve zengin ekosistem ile geliştirme sürecinizi hızlandırın.</p>
 		</div>
 	</div>
 	
-	<footer class="mt-24 text-slate-400 text-sm">
+	<footer class="mt-24 text-midgray text-sm">
 		<p>Bu proje Astro {import.meta.env.ASTRO_VERSION} ve Tailwind CSS 4 ile oluşturulmuştur.</p>
 	</footer>
 </div>
