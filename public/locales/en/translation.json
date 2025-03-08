@@ -1,0 +1,102 @@
+{
+    "common": {
+        "menu": {
+            "home": "Home",
+            "about": "About Us",
+            "features": "Features",
+            "products": "Products",
+            "contact": "Contact",
+            "login": "Login",
+            "register": "Register"
+        },
+        "buttons": {
+            "readMore": "Read More",
+            "getStarted": "Get Started",
+            "learnMore": "Learn More",
+            "tryNow": "Try Now"
+        },
+        "footer": {
+            "rights": "All Rights Reserved",
+            "privacy": "Privacy",
+            "terms": "Terms",
+            "cookies": "Cookies"
+        }
+    },
+    "home": {
+        "hero": {
+            "title": "ECU Tuning Portal",
+            "subtitle": "Professional Chip Tuning Solutions",
+            "description": "Welcome to ECU Tuning Portal, offering the most comprehensive service in the sector with 16 years of professional experience.",
+            "cta": "Get Started Now"
+        },
+        "features": {
+            "title": "Our Features",
+            "subtitle": "As a professional tuning file service portal, ECU Tuning Portal offers the most comprehensive service in the sector with 16 years of professional experience."
+        },
+        "testimonials": {
+            "title": "Customer Reviews",
+            "subtitle": "Check out what our customers say about the ECU Tuning Portal"
+        },
+        "statistics": {
+            "happy_customers": "Happy Customers",
+            "supported_brands": "Supported Brands",
+            "tuning_files": "Tuning Files",
+            "experience": "Years of Experience"
+        },
+        "cta": {
+            "title": "Get Started Now",
+            "description": "Start enjoying the benefits of ECU Tuning Portal right away",
+            "button": "Try Now"
+        }
+    },
+    "features": {
+        "customer_management": {
+            "title": "Customer Management System",
+            "description": "Easily manage your customers, store contact information, and track order history."
+        },
+        "credits_system": {
+            "title": "Advanced Credits System",
+            "description": "Provide fast and easy service to your customers with a prepaid credit system."
+        },
+        "ecu_credits": {
+            "title": "ECU Credits & Sales System",
+            "description": "Manage ECU credits, track sales, and view revenue reports."
+        },
+        "file_tracking": {
+            "title": "File Tracking System",
+            "description": "Easily track, organize, and archive all your files."
+        },
+        "language_support": {
+            "title": "16 Different Language Support",
+            "description": "Serve your international customers in their own languages."
+        },
+        "payment_methods": {
+            "title": "5 Different Payment Methods",
+            "description": "Accept payments via credit card, bank transfer, PayPal, and more."
+        },
+        "billing_system": {
+            "title": "Advanced Billing System",
+            "description": "Simplify your accounting processes with automatic invoice creation and sending features."
+        },
+        "vehicle_database": {
+            "title": "12,659 Vehicle Database",
+            "description": "Serve all makes and models with an extensive vehicle database."
+        },
+        "support_system": {
+            "title": "Support Request System",
+            "description": "Manage customer support requests and provide quick solutions."
+        },
+        "notifications": {
+            "title": "Cloud and SMS Notifications",
+            "description": "Automatically inform your customers about transaction statuses."
+        },
+        "discount_system": {
+            "title": "Customer Discount System",
+            "description": "Offer discounts to your special customers and create loyalty programs."
+        },
+        "more": {
+            "title": "And more...",
+            "description": "ECU Tuning Portal offers all the features you need and more."
+        }
+    }
+}

@@ -9,8 +9,19 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.7.1",
     "@tailwindcss/vite": "^4.0.12",
+    "aos": "^2.3.4",
     "astro": "^5.4.2",
-    "tailwindcss": "^4.0.12"
+    "astro-i18next": "^1.0.0-beta.21",
+    "astro-particles": "^2.10.0",
+    "countup.js": "^2.8.0",
+    "gsap": "^3.12.7",
+    "i18next": "^24.2.2",
+    "swiper": "^11.2.5",
+    "tailwindcss": "^4.0.12",
+    "tsparticles": "^3.8.1",
+    "tsparticles-engine": "^2.12.0",
+    "typed.js": "^2.1.0"
   }
 }

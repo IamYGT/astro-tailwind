@@ -1,5 +1,6 @@
 // Gerekli modelleri import et
-import { TestimonialModel, testimonialsData } from "../models/TestimonialModel";
+import type { TestimonialModel } from "../models/TestimonialModel";
+import { testimonialsData } from "../models/TestimonialModel";
 
 // TestimonialViewModel sınıfı
 export class TestimonialViewModel {

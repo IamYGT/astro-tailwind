@@ -1,0 +1,100 @@
+---
+import { t } from "i18next";
+import { statisticsData } from "../../models/StatisticsModel";
+---
+
+<section class="py-20 bg-gradient-to-b from-darkest to-dark">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">
+        {t("home.statistics.title") || "Rakamlarla ECU Tuning Portal"}
+      </h2>
+      <p class="text-xl text-body max-w-3xl mx-auto">
+        {
+          t("home.statistics.subtitle") ||
+            "Sektörde 16 yıllık deneyim ile ulaştığımız başarılar"
+        }
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        statisticsData.map((stat, index) => (
+          <div
+            class="bg-darkest rounded-xl p-6 border border-white-off hover:border-primary transition-all duration-300 text-center"
+            data-aos="zoom-in"
+            data-aos-delay={100 * index}
+          >
+            <div class="text-primary text-4xl md:text-5xl font-bold mb-2">
+              <span
+                class="stat-counter inline-block"
+                data-count={stat.value}
+                data-suffix={stat.suffix || ""}
+              >
+                0
+              </span>
+            </div>
+            <h3 class="text-white text-lg md:text-xl">
+              {t(`home.statistics.${stat.key}`) || stat.title}
+            </h3>
+            <p class="text-body mt-2 text-sm">{stat.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  // @ts-nocheck
+  import { CountUp } from "countup.js";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // IntersectionObserver ile görünür olduğunda sayaçları başlat
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll(".stat-counter");
+
+            counters.forEach((counter) => {
+              const targetValue = parseInt(
+                counter.getAttribute("data-count") || "0",
+                10
+              );
+              const suffix = counter.getAttribute("data-suffix") || "";
+
+              const options = {
+                startVal: 0,
+                duration: 2.5,
+                useEasing: true,
+                useGrouping: true,
+                separator: ",",
+                decimal: ".",
+                suffix: suffix,
+              };
+
+              const countUp = new CountUp(counter, targetValue, options);
+
+              if (!countUp.error) {
+                countUp.start();
+              } else {
+                counter.textContent = targetValue + suffix;
+              }
+            });
+
+            // Bir kere çalıştıktan sonra gözlemi sonlandır
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // İstatistik bölümünü gözlemle
+    const statsSection = document.querySelector("section");
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+  });
+</script>

@@ -1,0 +1,102 @@
+{
+    "common": {
+        "menu": {
+            "home": "Anasayfa",
+            "about": "Hakkımızda",
+            "features": "Özellikler",
+            "products": "Ürünler",
+            "contact": "İletişim",
+            "login": "Giriş Yap",
+            "register": "Kayıt Ol"
+        },
+        "buttons": {
+            "readMore": "Daha Fazla",
+            "getStarted": "Başlayın",
+            "learnMore": "Daha Fazla Bilgi",
+            "tryNow": "Şimdi Deneyin"
+        },
+        "footer": {
+            "rights": "Tüm Hakları Saklıdır",
+            "privacy": "Gizlilik",
+            "terms": "Şartlar",
+            "cookies": "Çerezler"
+        }
+    },
+    "home": {
+        "hero": {
+            "title": "ECU Tuning Portal",
+            "subtitle": "Profesyonel Chip Tuning Çözümleri",
+            "description": "16 yıllık profesyonel tecrübe ile sektörde en kapsamlı hizmeti sunan ECU Tuning Portal'a hoş geldiniz.",
+            "cta": "Hemen Başlayın"
+        },
+        "features": {
+            "title": "Özelliklerimiz",
+            "subtitle": "Profesyonel bir tuning dosyası servis portalı olarak, ECU Tuning Portal sektörde 16 yıllık profesyonel deneyimle en kapsamlı hizmeti sunmaktadır."
+        },
+        "testimonials": {
+            "title": "Müşteri Yorumları",
+            "subtitle": "Müşterilerimizin ECU Tuning Portal hakkında ne söylediklerine göz atın"
+        },
+        "statistics": {
+            "happy_customers": "Mutlu Müşteri",
+            "supported_brands": "Desteklenen Marka",
+            "tuning_files": "Tuning Dosyası",
+            "experience": "Yıllık Deneyim"
+        },
+        "cta": {
+            "title": "Hemen Başlayın",
+            "description": "ECU Tuning Portal'ın avantajlarından hemen yararlanmaya başlayın",
+            "button": "Şimdi Deneyin"
+        }
+    },
+    "features": {
+        "customer_management": {
+            "title": "Müşteri Yönetim Sistemi",
+            "description": "Müşterilerinizi kolayca yönetin, iletişim bilgilerini saklayın ve sipariş geçmişlerini takip edin."
+        },
+        "credits_system": {
+            "title": "Gelişmiş Kredi Sistemi",
+            "description": "Ön ödemeli kredi sistemi ile müşterilerinize hızlı ve kolay hizmet sunun."
+        },
+        "ecu_credits": {
+            "title": "ECU Kredileri ve Satış Sistemi",
+            "description": "ECU kredilerini yönetin, satışları takip edin ve gelir raporlarını görüntüleyin."
+        },
+        "file_tracking": {
+            "title": "Dosya Takip Sistemi",
+            "description": "Tüm dosyalarınızı kolayca takip edin, düzenleyin ve arşivleyin."
+        },
+        "language_support": {
+            "title": "16 Farklı Dil Desteği",
+            "description": "Uluslararası müşterilerinize kendi dillerinde hizmet sunun."
+        },
+        "payment_methods": {
+            "title": "5 Farklı Ödeme Yöntemi",
+            "description": "Kredi kartı, banka havalesi, PayPal ve daha fazlası ile ödeme alın."
+        },
+        "billing_system": {
+            "title": "Gelişmiş Fatura Sistemi",
+            "description": "Otomatik fatura oluşturma ve gönderme özellikleri ile muhasebe işlemlerinizi kolaylaştırın."
+        },
+        "vehicle_database": {
+            "title": "12,659 Araç Veritabanı",
+            "description": "Geniş araç veritabanı ile tüm marka ve modellere hizmet sunun."
+        },
+        "support_system": {
+            "title": "Destek Talebi Sistemi",
+            "description": "Müşteri destek taleplerini yönetin ve hızlı çözümler sunun."
+        },
+        "notifications": {
+            "title": "Bulut ve SMS Bildirimleri",
+            "description": "Müşterilerinizi işlem durumları hakkında otomatik olarak bilgilendirin."
+        },
+        "discount_system": {
+            "title": "Müşteri İndirim Sistemi",
+            "description": "Özel müşterilerinize indirimler sunun ve sadakat programları oluşturun."
+        },
+        "more": {
+            "title": "Ve daha fazlası...",
+            "description": "ECU Tuning Portal, ihtiyacınız olan tüm özellikleri ve daha fazlasını sunar."
+        }
+    }
+}
