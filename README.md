@@ -1,4 +1,47 @@
-# Astro Starter Kit: Basics
+# 🚀 Modern Astro + Tailwind CSS 4 Projesi
+
+Bu proje, en güncel Astro framework'ü ve Tailwind CSS 4 kullanılarak oluşturulmuş modern bir web uygulamasıdır.
+
+## 🌟 Özellikler
+
+- **Astro** - Hızlı, içeriğe odaklı web sitesi oluşturma framework'ü
+- **Tailwind CSS 4** - En son sürüm, yeni özellikleri ve geliştirmeleri içerir
+- **Modern Tasarım** - Duyarlı, erişilebilir ve göz alıcı arayüz
+- **TypeScript** - Tip güvenliği ve daha iyi geliştirici deneyimi
+
+## 🛠️ Kurulum
+
+Bu projeyi bilgisayarınıza klonlayın ve bağımlılıkları yükleyin:
+
+```bash
+# Depoyu klonlayın
+git clone https://github.com/kullanici/astro-tailwind.git
+cd astro-tailwind
+
+# Bağımlılıkları yükleyin
+npm install
+```
+
+## 🚀 Kullanım
+
+```bash
+# Geliştirme sunucusunu başlatın
+npm run dev
+
+# Üretime hazır bir derleme oluşturun
+npm run build
+
+# Üretime hazır derlemeyi önizleyin
+npm run preview
+```
+
+## 📝 Notlar
+
+Bu proje, Tailwind CSS'in 4. sürümünü kullanır, ancak bu sürümün Astro Tailwind entegrasyonu ile tam uyumlu olmadığını unutmayın. Bu nedenle, bazı özellikler beklendiği gibi çalışmayabilir.
+
+## 📜 Lisans
+
+MIT
 
 ```sh
 npm create astro@latest -- --template basics

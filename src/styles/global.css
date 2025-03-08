@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+/* Özel utility tanımı */
+@utility btn-primary {
+    background-color: var(--color-primary-500);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: background-color 200ms;
+}
+
+@utility btn-primary:hover {
+    background-color: var(--color-primary-600);
+}
+
+/* Tema değişkenleri için özel CSS değişkenleri */
+@theme {
+    --custom-animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    --custom-font-heading: "Poppins", sans-serif;
+}
