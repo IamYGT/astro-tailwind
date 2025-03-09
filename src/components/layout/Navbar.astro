@@ -1,7 +1,7 @@
 ---
 // Navbar bileşeni için gerekli importlar
-import LanguageSwitcher from "../common/LanguageSwitcher.astro";
-import { t } from "i18next";
+import LanguageSelectorAstro from "../LanguageSelectorAstro.astro";
+import { t } from "../../utils/i18n";
 ---
 
 <header
@@ -22,12 +22,12 @@ import { t } from "i18next";
         <a
           href="/"
           class="text-white hover:text-primary transition duration-200"
-          >{t("common.menu.home")}</a
+          data-i18n="common.menu.home">{t("common.menu.home")}</a
         >
         <a
           href="/features"
           class="text-body hover:text-primary transition duration-200"
-          >{t("common.menu.features")}</a
+          data-i18n="common.menu.features">{t("common.menu.features")}</a
         >
         <a
           href="/pricing"
@@ -37,7 +37,7 @@ import { t } from "i18next";
         <a
           href="/contact"
           class="text-body hover:text-primary transition duration-200"
-          >{t("common.menu.contact")}</a
+          data-i18n="common.menu.contact">{t("common.menu.contact")}</a
         >
         <a
           href="/blog"
@@ -50,17 +50,19 @@ import { t } from "i18next";
       </nav>
 
       <!-- Sağ Kısım (Giriş/Kayıt ve Dil Değiştirici) -->
-      <div class="hidden md:flex items-center space-x-3">
-        <LanguageSwitcher />
+      <div class="hidden md:flex items-center space-x-4">
+        <div class="mr-1">
+          <LanguageSelectorAstro />
+        </div>
         <a
           href="/login"
           class="text-white hover:text-primary transition duration-200"
-          >{t("common.menu.login")}</a
+          data-i18n="common.menu.login">{t("common.menu.login")}</a
         >
         <a
           href="/register"
           class="bg-primary hover:bg-primary-alt text-white px-4 py-2 rounded-md transition duration-200"
-          >{t("common.menu.register")}</a
+          data-i18n="common.menu.register">{t("common.menu.register")}</a
         >
       </div>
 
@@ -122,7 +124,9 @@ import { t } from "i18next";
         >SSS</a
       >
       <div class="block px-3 py-2">
-        <LanguageSwitcher />
+        <div class="mx-auto max-w-[200px]">
+          <LanguageSelectorAstro />
+        </div>
       </div>
       <a
         href="/login"
@@ -153,4 +157,3 @@ import { t } from "i18next";
     }
   });
 </script>
-

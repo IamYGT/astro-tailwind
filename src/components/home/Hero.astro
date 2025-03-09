@@ -1,6 +1,6 @@
 ---
 // Hero bileşeni için gerekli importlar
-import { t } from "i18next";
+import { t } from "../../utils/i18n";
 import HeroParticles from "./HeroParticles.astro";
 ---
 
@@ -34,12 +34,45 @@ import HeroParticles from "./HeroParticles.astro";
       <div class="mb-8" data-aos="fade-up" data-aos-delay="200">
         <h2
           class="text-xl md:text-2xl lg:text-3xl text-primary font-semibold mb-2"
+          data-i18n="home.hero.title"
         >
           {t("home.hero.title")}
         </h2>
-        <p class="text-lg text-body">
+        <p class="text-lg text-body" data-i18n="home.hero.subtitle">
+          {t("home.hero.subtitle")}
+        </p>
+      </div>
+
+      <div class="mb-10" data-aos="fade-up" data-aos-delay="400">
+        <p
+          class="text-body text-lg max-w-3xl"
+          data-i18n="home.hero.description"
+        >
           {t("home.hero.description")}
         </p>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="600">
+        <a
+          href="#features"
+          class="btn-primary px-8 py-3 text-base inline-flex items-center"
+          data-i18n="home.hero.cta"
+        >
+          {t("home.hero.cta")}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-5 h-5 ml-2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
+          </svg>
+        </a>
       </div>
 
       <div
@@ -47,12 +80,6 @@ import HeroParticles from "./HeroParticles.astro";
         data-aos="fade-up"
         data-aos-delay="400"
       >
-        <a
-          href="/register"
-          class="bg-primary hover:bg-primary-alt text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300 cta-button"
-        >
-          {t("home.hero.cta")}
-        </a>
         <a
           href="/features"
           class="bg-white-off hover:bg-white/10 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300"

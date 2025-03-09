@@ -2,7 +2,11 @@
 // Ana düzen için gerekli importlar
 import Navbar from "../components/layout/Navbar.astro";
 import Footer from "../components/layout/Footer.astro";
+import LanguageSelectorAstro from "../components/LanguageSelectorAstro.astro";
 import "../styles/global.css";
+import { detectUserLanguage, initializeI18n } from "../utils/i18n";
+import i18next from "i18next";
+import "../utils/TranslationSetup";
 
 // Props tanımlaması
 interface Props {
@@ -11,16 +15,25 @@ interface Props {
   ogImage?: string;
 }
 
+// Kullanıcının dilini tespit et
+const userLanguage = detectUserLanguage();
+
+// i18next'i bu sayfada başlat
+await initializeI18n(userLanguage);
+
 // Varsayılan değerler
 const {
   title = "ECU Tuning Portal - Professional File Service",
   description = "ECU Tuning Portal, professional file service for car tuning with 10+ years of experience. Manage your tuning files, customers and services in one place.",
   ogImage = "/images/og-image.jpg",
 } = Astro.props;
+
+// Sayfa dili
+const pageLang = i18next.language || "tr";
 ---
 
 <!doctype html>
-<html lang="tr" class="dark">
+<html lang={pageLang} class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,6 +79,125 @@ const {
       // Global script burada
       document.addEventListener("DOMContentLoaded", () => {
         console.log("DOM loaded");
+      });
+    </script>
+
+    <!-- Çeviri script'i -->
+    <script>
+      // Çevirilerin yüklenmesi ve hata ayıklama
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          // Çeviri dosyasını yükle
+          const userLang = localStorage.getItem("selectedLanguage") || "tr";
+
+          try {
+            const response = await fetch(
+              `/locales/${userLang}/translation.json`
+            );
+            if (!response.ok)
+              throw new Error(`Failed to load translations for ${userLang}`);
+
+            const translations = await response.json();
+            console.log("Translations loaded:", translations);
+
+            // Çevirileri uygula
+            const applyTranslations = (obj, prefix = "") => {
+              for (const [key, value] of Object.entries(obj)) {
+                const fullKey = prefix ? `${prefix}.${key}` : key;
+
+                if (typeof value === "object" && value !== null) {
+                  applyTranslations(value, fullKey);
+                } else if (typeof value === "string") {
+                  // Anahtar içeren elementleri bul ve çevir
+                  document
+                    .querySelectorAll(`[data-i18n="${fullKey}"]`)
+                    .forEach((el) => {
+                      el.textContent = value;
+                    });
+
+                  // İçerik olarak anahtarı içeren elementleri bul ve çevir
+                  document
+                    .querySelectorAll(`*:not(script):not(style)`)
+                    .forEach((el) => {
+                      if (
+                        el.childNodes.length === 1 &&
+                        el.childNodes[0].nodeType === Node.TEXT_NODE
+                      ) {
+                        const text = el.textContent?.trim();
+                        if (text === fullKey) {
+                          el.textContent = value;
+                          el.setAttribute("data-translated", "true");
+                        }
+                      }
+                    });
+                }
+              }
+            };
+
+            applyTranslations(translations);
+
+            // Çevrilmemiş anahtarları işaretle
+            setTimeout(() => {
+              markUntranslatedContent();
+            }, 500);
+          } catch (error) {
+            console.error("Translation loading error:", error);
+          }
+
+          // Çevrilmemiş içerikleri işaretle (geliştirme sırasında)
+          function markUntranslatedContent() {
+            // common.menu.home tarzında anahtar içeren metinleri seç
+            const regex = /^[a-z]+(\.[a-z]+)+$/i;
+
+            document
+              .querySelectorAll("*:not(script):not(style)")
+              .forEach((el) => {
+                if (
+                  el.childNodes.length === 1 &&
+                  el.childNodes[0].nodeType === Node.TEXT_NODE
+                ) {
+                  const text = el.textContent?.trim();
+                  if (
+                    text &&
+                    regex.test(text) &&
+                    !el.hasAttribute("data-translated")
+                  ) {
+                    console.warn(`Çevrilmemiş anahtar: ${text}`);
+                    el.setAttribute("data-missing-translation", "true");
+                    // Geliştirme ortamında vurgulamak için stil ekle
+                    el.style.border = "1px solid red";
+                    el.style.position = "relative";
+
+                    // Element üzerinde bir ipucu göster
+                    const tooltip = document.createElement("div");
+                    tooltip.textContent = `Çevrilmemiş: ${text}`;
+                    tooltip.style.position = "absolute";
+                    tooltip.style.top = "100%";
+                    tooltip.style.left = "0";
+                    tooltip.style.backgroundColor = "rgba(255,0,0,0.8)";
+                    tooltip.style.color = "white";
+                    tooltip.style.padding = "4px 8px";
+                    tooltip.style.borderRadius = "4px";
+                    tooltip.style.fontSize = "12px";
+                    tooltip.style.zIndex = "1000";
+                    tooltip.style.display = "none";
+
+                    el.appendChild(tooltip);
+
+                    el.addEventListener("mouseenter", () => {
+                      tooltip.style.display = "block";
+                    });
+
+                    el.addEventListener("mouseleave", () => {
+                      tooltip.style.display = "none";
+                    });
+                  }
+                }
+              });
+          }
+        } catch (error) {
+          console.error("Çeviri script hatası:", error);
+        }
       });
     </script>
   </body>

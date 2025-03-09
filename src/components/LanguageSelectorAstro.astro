@@ -1,0 +1,378 @@
+---
+// Mevcut i18next konfigürasyonunu kullan
+import i18next from "i18next";
+import { t } from "../utils/i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+// Bayrak kütüphanesinin stil dosyasını import et
+import "flag-icons/css/flag-icons.min.css";
+
+// astro-i18next.config.mjs'den desteklenen diller ve adları alınabilir
+const SUPPORTED_LANGUAGES = [
+  "tr",
+  "en",
+  "de",
+  "fr",
+  "es",
+  "it",
+  "ru",
+  "pl",
+  "nl",
+  "sv",
+  "ar",
+];
+const LANGUAGE_NAMES = {
+  tr: "Türkçe",
+  en: "English",
+  de: "Deutsch",
+  fr: "Français",
+  es: "Español",
+  it: "Italiano",
+  ru: "Русский",
+  pl: "Polski",
+  nl: "Nederlands",
+  sv: "Svenska",
+  ar: "العربية",
+};
+
+// Dil kodları (iki harfli, küçük harfle bayrak kütüphanesi için)
+const FLAG_CODES = {
+  tr: "tr",
+  en: "gb",
+  de: "de",
+  fr: "fr",
+  es: "es",
+  it: "it",
+  ru: "ru",
+  pl: "pl",
+  nl: "nl",
+  sv: "se", // İsveç için kodu se
+  ar: "sa", // Suudi Arabistan için kodu sa
+};
+
+// Mevcut dil
+// i18next.language değeri Astro SSR sırasında doğru olmayabilir
+const userPreferredLanguage =
+  typeof window !== "undefined"
+    ? localStorage.getItem("selectedLanguage")
+    : null;
+const currentLanguage = userPreferredLanguage || i18next.language || "tr";
+---
+
+<div
+  class="language-selector relative inline-block text-left"
+  id="lang-selector"
+  data-current-lang={currentLanguage}
+>
+  <!-- Mevcut dil butonu -->
+  <button
+    type="button"
+    class="inline-flex items-center justify-between py-2 px-3 text-sm font-medium text-white bg-primary hover:bg-primary-dark transition-all duration-200 rounded-sm"
+    id="language-menu-button"
+    aria-expanded="false"
+    aria-haspopup="true"
+  >
+    <div class="flex items-center">
+      <span
+        class="fi fi-{FLAG_CODES[currentLanguage as keyof typeof FLAG_CODES]} mr-2"
+      ></span>
+      <span
+        class="font-medium text-xs uppercase tracking-wide"
+        id="current-lang-code"
+      >
+        {currentLanguage.toUpperCase()}
+      </span>
+    </div>
+    <svg
+      class="ml-1.5 h-3.5 w-3.5 text-white/90 transition-transform duration-200"
+      id="dropdown-arrow"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+        clip-rule="evenodd"></path>
+    </svg>
+  </button>
+
+  <!-- Dil seçimi dropdown -->
+  <div
+    id="language-dropdown"
+    class="hidden absolute right-0 z-50 w-44 rounded-sm border border-gray-800 bg-gray-900 shadow-lg overflow-hidden"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="language-menu-button"
+    tabindex="-1"
+  >
+    <div class="py-0.5 max-h-80 overflow-auto" role="none">
+      {
+        SUPPORTED_LANGUAGES.map((lang) => (
+          <a
+            href={`?lang=${lang}`}
+            class={`flex items-center px-3 py-2 text-xs hover:bg-gray-800 transition-colors duration-150 ${
+              currentLanguage === lang
+                ? "bg-primary text-white font-medium"
+                : "text-gray-300"
+            }`}
+            role="menuitem"
+            tabindex="-1"
+            data-lang={lang}
+            id={`lang-option-${lang}`}
+          >
+            <span
+              class={`fi fi-${FLAG_CODES[lang as keyof typeof FLAG_CODES]} mr-2 shadow-sm`}
+            />
+            <span>{LANGUAGE_NAMES[lang as keyof typeof LANGUAGE_NAMES]}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .language-selector {
+    --primary-color: rgb(201, 52, 52);
+    --dark-bg: #111;
+    --darker-bg: #000;
+    --border-color: #2d2d2d;
+  }
+
+  .language-selector button {
+    background-color: var(--primary-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .language-selector button:hover {
+    background-color: rgb(175, 45, 45);
+  }
+
+  .language-selector button:active {
+    transform: translateY(1px);
+  }
+
+  /* Aktif dil seçeneği */
+  .language-selector [data-lang].bg-primary {
+    background-color: var(--primary-color);
+  }
+
+  /* Seçenek hover efekti */
+  .language-selector a:hover {
+    background-color: #222;
+  }
+
+  /* Dropdown stili */
+  #language-dropdown {
+    background-color: var(--dark-bg);
+    border-color: var(--border-color);
+    margin-top: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Bayrak stilleri */
+  .fi {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    width: 1.2em;
+    height: 0.9em;
+    transition: transform 0.2s ease;
+  }
+
+  /* Bayrak hover efekti */
+  a:hover .fi {
+    transform: scale(1.05);
+  }
+
+  /* Özel kaydırma çubuğu */
+  .language-selector .max-h-80 {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+  }
+
+  .language-selector .max-h-80::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .language-selector .max-h-80::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .language-selector .max-h-80::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 20px;
+  }
+</style>
+
+<script>
+  // Vanilla JavaScript ile dropdown işlevselliği
+  document.addEventListener("DOMContentLoaded", () => {
+    const langButton = document.getElementById("language-menu-button");
+    const langDropdown = document.getElementById("language-dropdown");
+    const dropdownArrow = document.getElementById("dropdown-arrow");
+    const langSelector = document.getElementById("lang-selector");
+    const currentLangCode = document.getElementById("current-lang-code");
+    let isOpen = false;
+
+    // Sayfanın ilk yüklenmesinde mevcut dil gösterimini güncelle
+    updateCurrentLanguageDisplay();
+
+    // Dropdown'u aç/kapat
+    function toggleDropdown() {
+      isOpen = !isOpen;
+      langButton?.setAttribute("aria-expanded", isOpen.toString());
+
+      if (isOpen) {
+        langDropdown?.classList.remove("hidden");
+        dropdownArrow?.classList.add("rotate-180");
+        updateSelectedLanguageHighlight();
+      } else {
+        langDropdown?.classList.add("hidden");
+        dropdownArrow?.classList.remove("rotate-180");
+      }
+    }
+
+    // Mevcut dilin görüntüsünü güncelle
+    function updateCurrentLanguageDisplay() {
+      // localStorage'dan seçilen dili al
+      const savedLanguage = localStorage.getItem("selectedLanguage");
+      if (!savedLanguage) return;
+
+      // Kodu güncelle
+      if (currentLangCode) {
+        currentLangCode.textContent = savedLanguage.toUpperCase();
+      }
+
+      // Bayrağı güncelle
+      const FLAG_CODES: Record<string, string> = {
+        tr: "tr",
+        en: "gb",
+        de: "de",
+        fr: "fr",
+        es: "es",
+        it: "it",
+        ru: "ru",
+        pl: "pl",
+        nl: "nl",
+        sv: "se",
+        ar: "sa",
+      };
+
+      const flagElement = langButton?.querySelector(".fi");
+      if (flagElement) {
+        // Tüm fi-xx sınıflarını kaldır
+        [...flagElement.classList].forEach((cls) => {
+          if (cls.startsWith("fi-")) {
+            flagElement.classList.remove(cls);
+          }
+        });
+
+        // Yeni bayrağı ekle
+        if (savedLanguage in FLAG_CODES) {
+          flagElement.classList.add(`fi-${FLAG_CODES[savedLanguage]}`);
+        }
+      }
+
+      // Bileşenin data özniteliğini güncelle
+      langSelector?.setAttribute("data-current-lang", savedLanguage);
+    }
+
+    // Dropdown menüsünde seçilen dili vurgula
+    function updateSelectedLanguageHighlight() {
+      const savedLanguage = localStorage.getItem("selectedLanguage");
+      if (!savedLanguage) return;
+
+      // Önce tüm seçeneklerin vurgusunu kaldır
+      document.querySelectorAll("[data-lang]").forEach((option) => {
+        option.classList.remove("bg-primary", "text-white", "font-medium");
+        option.classList.add("text-gray-300");
+      });
+
+      // Seçilen dili vurgula
+      const selectedOption = document.getElementById(
+        `lang-option-${savedLanguage}`
+      );
+      if (selectedOption) {
+        selectedOption.classList.remove("text-gray-300");
+        selectedOption.classList.add("bg-primary", "text-white", "font-medium");
+      }
+    }
+
+    // Dil butonuna tıklama
+    langButton?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleDropdown();
+    });
+
+    // Sayfanın herhangi bir yerine tıklama
+    document.addEventListener("click", (e) => {
+      if (isOpen && !langSelector?.contains(e.target as Node)) {
+        toggleDropdown();
+      }
+    });
+
+    // Dil seçeneklerine tıklama işlemi
+    const langLinks = document.querySelectorAll("[data-lang]");
+    langLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const lang = (link as HTMLElement).dataset.lang;
+
+        // Seçilen dili localStorage'a kaydet
+        if (lang) {
+          localStorage.setItem("selectedLanguage", lang);
+
+          // UI güncelle
+          if (currentLangCode) {
+            currentLangCode.textContent = lang.toUpperCase();
+          }
+
+          // Bayrağı güncelle
+          const FLAG_CODES: Record<string, string> = {
+            tr: "tr",
+            en: "gb",
+            de: "de",
+            fr: "fr",
+            es: "es",
+            it: "it",
+            ru: "ru",
+            pl: "pl",
+            nl: "nl",
+            sv: "se",
+            ar: "sa",
+          };
+
+          const flagElement = langButton?.querySelector(".fi");
+          if (flagElement && lang in FLAG_CODES) {
+            // Tüm fi-xx sınıflarını kaldır
+            [...flagElement.classList].forEach((cls) => {
+              if (cls.startsWith("fi-")) {
+                flagElement.classList.remove(cls);
+              }
+            });
+
+            // Yeni bayrağı ekle
+            flagElement.classList.add(`fi-${FLAG_CODES[lang]}`);
+          }
+
+          // Dropdown'u kapat
+          toggleDropdown();
+
+          // Sayfayı yenilemeden önce kısa bir gecikme ve animasyon efekti
+          link.classList.add("bg-primary", "bg-opacity-70");
+          setTimeout(() => {
+            window.location.reload();
+          }, 300);
+        }
+      });
+    });
+
+    // Esc tuşu ile kapatma
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isOpen) {
+        toggleDropdown();
+      }
+    });
+  });
+</script>
