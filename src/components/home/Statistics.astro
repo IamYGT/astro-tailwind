@@ -6,14 +6,17 @@ import { statisticsData } from "../../models/StatisticsModel";
 <section class="py-20 bg-gradient-to-b from-darkest to-dark">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">
-        {t("home.statistics.title") || "Rakamlarla ECU Tuning Portal"}
+      <h2
+        class="text-3xl md:text-4xl font-bold text-white mb-3"
+        data-i18n="home.statistics.title"
+      >
+        {t("home.statistics.title")}
       </h2>
-      <p class="text-xl text-body max-w-3xl mx-auto">
-        {
-          t("home.statistics.subtitle") ||
-            "Sektörde 16 yıllık deneyim ile ulaştığımız başarılar"
-        }
+      <p
+        class="text-xl text-body max-w-3xl mx-auto"
+        data-i18n="home.statistics.subtitle"
+      >
+        {t("home.statistics.subtitle")}
       </p>
     </div>
 
@@ -34,8 +37,11 @@ import { statisticsData } from "../../models/StatisticsModel";
                 0
               </span>
             </div>
-            <h3 class="text-white text-lg md:text-xl">
-              {t(`home.statistics.${stat.key}`) || stat.title}
+            <h3
+              class="text-white text-lg md:text-xl"
+              data-i18n={`home.statistics.${stat.key}`}
+            >
+              {t(`home.statistics.${stat.key}`)}
             </h3>
             <p class="text-body mt-2 text-sm">{stat.description}</p>
           </div>

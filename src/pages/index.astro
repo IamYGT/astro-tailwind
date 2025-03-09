@@ -4,6 +4,7 @@ import Hero from "../components/home/Hero.astro";
 import Features from "../components/home/Features.astro";
 import Statistics from "../components/home/Statistics.astro";
 import Testimonials from "../components/home/Testimonials.astro";
+import { t } from "../utils/i18n";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -26,12 +27,16 @@ import Testimonials from "../components/home/Testimonials.astro";
         <h2 class="text-primary text-3xl md:text-4xl font-bold mb-4">
           Designed for Professional Masters.
         </h2>
-        <p class="text-body max-w-4xl mx-auto">
-          This portal was designed after many intensive meetings with our
-          clients. It was especially designed for professionals who provide
-          tuning services in the market. After constantly exchanging ideas with
-          our clients, we designed a user-friendly portal without any
-          unnecessary features.
+        <p
+          class="text-body max-w-4xl mx-auto"
+          data-i18n="home.portal.description"
+        >
+          {
+            t(
+              "home.portal.description",
+              "This portal was designed after many intensive meetings with our clients. It was especially designed for professionals who provide tuning services in the market. After constantly exchanging ideas with our clients, we designed a user-friendly portal without any unnecessary features."
+            )
+          }
         </p>
       </div>
     </div>
@@ -42,12 +47,24 @@ import Testimonials from "../components/home/Testimonials.astro";
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div data-aos="fade-right">
-          <h2 class="text-primary text-3xl md:text-4xl font-bold mb-4">
-            Work Internationally with 16 Different Languages.
+          <h2
+            class="text-primary text-3xl md:text-4xl font-bold mb-4"
+            data-i18n="home.language.title"
+          >
+            {
+              t(
+                "home.language.title",
+                "Work Internationally with 16 Different Languages."
+              )
+            }
           </h2>
-          <p class="text-body mb-6">
-            We know that the tuning industry operates globally, so our portal
-            supports 16 different languages to help you reach clients worldwide.
+          <p class="text-body mb-6" data-i18n="home.language.description">
+            {
+              t(
+                "home.language.description",
+                "We know that the tuning industry operates globally, so our portal supports 16 different languages to help you reach clients worldwide."
+              )
+            }
           </p>
           <div class="grid grid-cols-4 md:grid-cols-6 gap-4 mt-8">
             <img
@@ -222,25 +239,32 @@ import Testimonials from "../components/home/Testimonials.astro";
         class="max-w-4xl mx-auto text-center bg-darkest rounded-2xl p-12 border border-white-off shadow-xl"
         data-aos="zoom-in"
       >
-        <h2 class="text-primary text-3xl md:text-4xl font-bold mb-4">
-          Ready to Get Started?
+        <h2
+          class="text-primary text-3xl md:text-4xl font-bold mb-4"
+          data-i18n="home.cta.ready"
+        >
+          {t("home.cta.ready")}
         </h2>
-        <p class="text-body text-lg mb-8 max-w-3xl mx-auto">
-          Join +2,500 satisfied customers and start managing your tuning
-          business more efficiently today.
+        <p
+          class="text-body text-lg mb-8 max-w-3xl mx-auto"
+          data-i18n="home.cta.join"
+        >
+          {t("home.cta.join")}
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/register"
             class="bg-primary hover:bg-primary-alt text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-300 cta-button-pulse"
+            data-i18n="common.buttons.tryFree"
           >
-            Try It Free for 14 Days
+            {t("common.buttons.tryFree")}
           </a>
           <a
             href="/contact"
             class="bg-white-off hover:bg-white/10 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors duration-300"
+            data-i18n="common.buttons.contactSales"
           >
-            Contact Sales
+            {t("common.buttons.contactSales")}
           </a>
         </div>
       </div>

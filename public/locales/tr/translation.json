@@ -7,19 +7,33 @@
             "products": "Ürünler",
             "contact": "İletişim",
             "login": "Giriş Yap",
-            "register": "Kayıt Ol"
+            "register": "Kayıt Ol",
+            "pricing": "Fiyatlandırma",
+            "faq": "SSS",
+            "blog": "Blog"
         },
         "buttons": {
             "readMore": "Daha Fazla",
             "getStarted": "Başlayın",
             "learnMore": "Daha Fazla Bilgi",
-            "tryNow": "Şimdi Deneyin"
+            "tryNow": "Şimdi Deneyin",
+            "tryFree": "14 Gün Ücretsiz Deneyin",
+            "contactSales": "Satış Ekibiyle İletişime Geçin"
         },
         "footer": {
             "rights": "Tüm Hakları Saklıdır",
             "privacy": "Gizlilik",
             "terms": "Şartlar",
-            "cookies": "Çerezler"
+            "cookies": "Çerezler",
+            "quickLinks": "Hızlı Linkler",
+            "support": "Destek",
+            "helpCenter": "Yardım Merkezi",
+            "termsOfUse": "Kullanım Şartları",
+            "privacyPolicy": "Gizlilik Politikası",
+            "refundPolicy": "İade Politikası",
+            "documentation": "Dokümantasyon",
+            "contact": "İletişim",
+            "portalDescription": "Profesyonel ECU tuning yazılımı ve hizmetleri sunan lider platform."
         }
     },
     "home": {
@@ -27,7 +41,8 @@
             "title": "ECU Tuning Portal",
             "subtitle": "Profesyonel Chip Tuning Çözümleri",
             "description": "16 yıllık profesyonel tecrübe ile sektörde en kapsamlı hizmeti sunan ECU Tuning Portal'a hoş geldiniz.",
-            "cta": "Hemen Başlayın"
+            "cta": "Hemen Başlayın",
+            "experienceText": "Araç tuning ekosistemindeki 10+ yıllık tecrübemizle geliştirilen bu profesyonel portal ile tüm iş süreçlerinizi kolayca yönetin."
         },
         "features": {
             "title": "Özelliklerimiz",
@@ -38,15 +53,54 @@
             "subtitle": "Müşterilerimizin ECU Tuning Portal hakkında ne söylediklerine göz atın"
         },
         "statistics": {
+            "title": "Rakamlarla ECU Tuning Portal",
+            "subtitle": "Sektörde 16 yıllık deneyim ile ulaştığımız başarılar",
             "happy_customers": "Mutlu Müşteri",
             "supported_brands": "Desteklenen Marka",
             "tuning_files": "Tuning Dosyası",
-            "experience": "Yıllık Deneyim"
+            "experience": "Yıllık Deneyim",
+            "code_lines": "Kod Satırı (Bin)"
         },
         "cta": {
             "title": "Hemen Başlayın",
             "description": "ECU Tuning Portal'ın avantajlarından hemen yararlanmaya başlayın",
-            "button": "Şimdi Deneyin"
+            "button": "Şimdi Deneyin",
+            "ready": "Başlamaya Hazır Mısınız?",
+            "join": "+2,500 memnun müşteriye katılın ve tuning işinizi daha verimli yönetmeye hemen başlayın."
+        },
+        "brands": {
+            "title": "En iyi otomotiv markalarının güvendiği platform",
+            "brands": [
+                "Mercedes-Benz",
+                "BMW",
+                "Audi",
+                "Volkswagen",
+                "Porsche",
+                "Toyota"
+            ]
+        },
+        "professionals": {
+            "title": "Profesyoneller İçin Tasarlandı",
+            "description": "Bu portal, müşterilerimizle yaptığımız yoğun toplantılar sonrasında tasarlandı. Özellikle piyasada tuning hizmeti sunan profesyoneller için tasarlandı. Müşterilerimizle sürekli fikir alışverişi yaptıktan sonra, gereksiz özellikler olmadan kullanıcı dostu bir portal tasarladık."
+        },
+        "international": {
+            "title": "16 Farklı Dil Desteği ile Uluslararası Çalışın",
+            "description": "Tuning sektörünün küresel olarak faaliyet gösterdiğini biliyoruz, bu nedenle portalımız dünya çapındaki müşterilere ulaşmanıza yardımcı olmak için 16 farklı dili destekliyor.",
+            "languages": [
+                "İngilizce",
+                "Almanca",
+                "Fransızca",
+                "İspanyolca",
+                "İtalyanca",
+                "Portekizce",
+                "Türkçe",
+                "Rusça",
+                "Lehçe",
+                "Hollandaca",
+                "İsveççe",
+                "Arapça"
+            ],
+            "label": "Çoklu Dil Desteği"
         }
     },
     "features": {
@@ -97,6 +151,15 @@
         "more": {
             "title": "Ve daha fazlası...",
             "description": "ECU Tuning Portal, ihtiyacınız olan tüm özellikleri ve daha fazlasını sunar."
+        }
+    },
+    "testimonials": {
+        "customers": {
+            "richard": "Richard Harris",
+            "jessica": "Jessica Miller",
+            "michael": "Michael Thompson",
+            "sophia": "Sophia Wang",
+            "robert": "Robert Johnson"
         }
     }
 }

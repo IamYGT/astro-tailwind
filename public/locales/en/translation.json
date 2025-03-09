@@ -7,19 +7,33 @@
             "products": "Products",
             "contact": "Contact",
             "login": "Login",
-            "register": "Register"
+            "register": "Register",
+            "pricing": "Pricing",
+            "faq": "FAQ",
+            "blog": "Blog"
         },
         "buttons": {
             "readMore": "Read More",
             "getStarted": "Get Started",
             "learnMore": "Learn More",
-            "tryNow": "Try Now"
+            "tryNow": "Try Now",
+            "tryFree": "Try It Free for 14 Days",
+            "contactSales": "Contact Sales"
         },
         "footer": {
             "rights": "All Rights Reserved",
             "privacy": "Privacy",
             "terms": "Terms",
-            "cookies": "Cookies"
+            "cookies": "Cookies",
+            "quickLinks": "Quick Links",
+            "support": "Support",
+            "helpCenter": "Help Center",
+            "termsOfUse": "Terms of Use",
+            "privacyPolicy": "Privacy Policy",
+            "refundPolicy": "Refund Policy",
+            "documentation": "Documentation",
+            "contact": "Contact",
+            "portalDescription": "Leading platform providing professional ECU tuning software and services."
         }
     },
     "home": {
@@ -27,7 +41,8 @@
             "title": "ECU Tuning Portal",
             "subtitle": "Professional Chip Tuning Solutions",
             "description": "Welcome to ECU Tuning Portal, offering the most comprehensive service in the sector with 16 years of professional experience.",
-            "cta": "Get Started Now"
+            "cta": "Get Started Now",
+            "experienceText": "Easily manage all your business processes with this professional portal developed with our 10+ years of experience in the car tuning ecosystem."
         },
         "features": {
             "title": "Our Features",
@@ -38,15 +53,34 @@
             "subtitle": "Check out what our customers say about the ECU Tuning Portal"
         },
         "statistics": {
+            "title": "ECU Tuning Portal in Numbers",
+            "subtitle": "Our achievements with 16 years of experience in the industry",
             "happy_customers": "Happy Customers",
             "supported_brands": "Supported Brands",
             "tuning_files": "Tuning Files",
-            "experience": "Years of Experience"
+            "experience": "Years of Experience",
+            "code_lines": "Code Lines (K)"
         },
         "cta": {
             "title": "Get Started Now",
             "description": "Start enjoying the benefits of ECU Tuning Portal right away",
-            "button": "Try Now"
+            "button": "Try Now",
+            "ready": "Ready to Get Started?",
+            "join": "Join +2,500 satisfied customers and start managing your tuning business more efficiently today."
+        },
+        "brands": {
+            "title": "Trusted by the best automotive brands",
+            "brands": ["Mercedes-Benz", "BMW", "Audi", "Volkswagen", "Porsche", "Toyota"]
+        },
+        "professionals": {
+            "title": "Designed for Professional Masters",
+            "description": "This portal was designed after many intensive meetings with our clients. It was especially designed for professionals who provide tuning services in the market. After constantly exchanging ideas with our clients, we designed a user-friendly portal without any unnecessary features."
+        },
+        "international": {
+            "title": "Work Internationally with 16 Different Languages",
+            "description": "We know that the tuning industry operates globally, so our portal supports 16 different languages to help you reach clients worldwide.",
+            "languages": ["English", "German", "French", "Spanish", "Italian", "Portuguese", "Turkish", "Russian", "Polish", "Dutch", "Swedish", "Arabic"],
+            "label": "Multilanguage Support"
         }
     },
     "features": {
@@ -97,6 +131,15 @@
         "more": {
             "title": "And more...",
             "description": "ECU Tuning Portal offers all the features you need and more."
+        }
+    },
+    "testimonials": {
+        "customers": {
+            "richard": "Richard Harris",
+            "jessica": "Jessica Miller",
+            "michael": "Michael Thompson",
+            "sophia": "Sophia Wang",
+            "robert": "Robert Johnson"
         }
     }
 }

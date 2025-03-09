@@ -101,7 +101,7 @@ const pageLang = i18next.language || "tr";
             console.log("Translations loaded:", translations);
 
             // Çevirileri uygula
-            const applyTranslations = (obj, prefix = "") => {
+            const applyTranslations = (obj: object, prefix = "") => {
               for (const [key, value] of Object.entries(obj)) {
                 const fullKey = prefix ? `${prefix}.${key}` : key;
 
@@ -165,8 +165,8 @@ const pageLang = i18next.language || "tr";
                     console.warn(`Çevrilmemiş anahtar: ${text}`);
                     el.setAttribute("data-missing-translation", "true");
                     // Geliştirme ortamında vurgulamak için stil ekle
-                    el.style.border = "1px solid red";
-                    el.style.position = "relative";
+                    (el as HTMLElement).style.border = "1px solid red";
+                    (el as HTMLElement).style.position = "relative";
 
                     // Element üzerinde bir ipucu göster
                     const tooltip = document.createElement("div");
